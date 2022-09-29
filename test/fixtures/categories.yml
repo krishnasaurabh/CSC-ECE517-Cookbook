@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: Some_Category
+
+two:
+  name: MyString
+
+<% 100.times do |n| %>
+category_<%= n %>:
+  name: <%= "category_name_#{n}" %>
+<% end %>
