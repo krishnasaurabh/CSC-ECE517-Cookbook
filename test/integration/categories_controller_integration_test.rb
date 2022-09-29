@@ -12,7 +12,7 @@ class CategoriesControllerIntegrationTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_difference 'Category.count' do
-      post '/categories', category: {name: "New Category"}
+      post '/categories', params: { category: {name: "New Category"} }
     end
 
     assert_equal '/categories',path
@@ -40,7 +40,7 @@ class CategoriesControllerIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "should update category" do
-    put '/categories/' + @category.id.to_s, category: @category.attributes
+    put '/categories/' + @category.id.to_s, params: { category: @category.attributes }
     assert_redirected_to category_path(assigns(:category))
   end
 

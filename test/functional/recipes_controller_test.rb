@@ -18,30 +18,30 @@ class RecipesControllerTest < ActionController::TestCase
 
   test "should create recipe" do
     assert_difference('Recipe.count') do
-      post :create, recipe: { description: @recipe.description, instructions: @recipe.instructions, title: @recipe.title }
+      post :create, params: { recipe: { description: @recipe.description, instructions: @recipe.instructions, title: @recipe.title } }
     end
 
     assert_redirected_to recipe_path(assigns(:recipe))
   end
 
   test "should show recipe" do
-    get :show, id: @recipe
+    get :show, params: { id: @recipe }
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @recipe
+    get :edit, params: { id: @recipe }
     assert_response :success
   end
 
   test "should update recipe" do
-    put :update, id: @recipe, recipe: { description: @recipe.description, instructions: @recipe.instructions, title: @recipe.title }
+    put :update, params: { id: @recipe, recipe: { description: @recipe.description, instructions: @recipe.instructions, title: @recipe.title } }
     assert_redirected_to recipe_path(assigns(:recipe))
   end
 
   test "should destroy recipe" do
     assert_difference('Recipe.count', -1) do
-      delete :destroy, id: @recipe
+      delete :destroy, params: { id: @recipe }
     end
 
     assert_redirected_to recipes_path
