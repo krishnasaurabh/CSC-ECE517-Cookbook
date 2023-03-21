@@ -1,5 +1,9 @@
 <h1>Listing recipes</h1>
-
+<%= form_tag recipes_path, method: :get do %>
+  <%= label_tag :category_id, "Filter by category:" %>
+  <%= select_tag :category_id, options_for_select(Category.all.map{ |c| [c.name] }, params[:id]), prompt: "All categories" %>
+  <%= submit_tag "Filter" %>
+<% end %>
 <table>
   <tr>
     <th>Title</th>

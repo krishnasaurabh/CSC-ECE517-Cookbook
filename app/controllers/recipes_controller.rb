@@ -7,7 +7,11 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all
+    if params[:category_id].present?
+      @recipes = Recipe.where(category_id: params[:category_id])
+    else
+      @recipes = Recipe.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
